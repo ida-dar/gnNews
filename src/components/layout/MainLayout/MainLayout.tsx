@@ -1,12 +1,13 @@
+import { Container } from 'react-bootstrap';
 import GlobalStyle from 'src/assets/theme/GlobalStyles';
 import Header from '../Header/Header';
 
 const MainLayout = () => {
   return (
-    <div>
+    <Container fluid>
       <GlobalStyle />
       <Header />
-    </div>
+    </Container>
   );
 };
 
