@@ -12,6 +12,7 @@ export const colors: interfaces.Colors = {
   secondary: '#65dac7',
   bgColor: '#eeeeee',
   bgDarkColor: '#e6e6e6',
+  bgDark: '#323232',
   warning: '#b10905',
   success: '#228B22',
 };

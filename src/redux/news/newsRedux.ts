@@ -14,15 +14,14 @@ const initialState: NewsState = {
 };
 
 // reducer
-export const fetchNews = () => async (dispatch: Dispatch) => {
+export const fetchNews = (countryCode: string) => async (dispatch: Dispatch) => {
   dispatch(fetchNewsStart());
 
   try {
     const resp = await axios.get(
-      `https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`
+      `https://newsapi.org/v2/top-headlines?country=${countryCode}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`
     );
     dispatch(setNews(resp.data.articles));
-    console.log(resp.data.articles);
   } catch (e) {
     dispatch(fetchNewsFail(e));
   }

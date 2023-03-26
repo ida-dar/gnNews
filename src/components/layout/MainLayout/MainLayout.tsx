@@ -1,7 +1,8 @@
-import { Container } from 'react-bootstrap';
 import GlobalStyle from 'src/assets/theme/GlobalStyles';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
+import Sidebar from '../Sidebar/Sidebar';
+import { Comp, Main } from './MainLayoutCSS';
 
 interface Props {
   children: React.ReactNode | JSX.Element | JSX.Element[]; // best, accepts everything React can render
@@ -13,10 +14,11 @@ const MainLayout = ({ children }: Props) => {
   return (
     <>
       <Header />
-      <Container fluid>
-        <GlobalStyle />
-        <main>{children}</main>
-      </Container>
+      <GlobalStyle />
+      <Comp>
+        <Sidebar />
+        <Main>{children}</Main>
+      </Comp>
       <Footer />
     </>
   );
