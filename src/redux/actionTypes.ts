@@ -4,6 +4,7 @@ import { News } from 'src/interfaces/news.interface';
 // news
 export type NewsState = {
   readonly news: News[];
+  readonly displayType: string;
   readonly request: {
     pending: boolean;
     error: Error | null;
@@ -15,6 +16,7 @@ export enum NEWS_ACTION_TYPES {
   FETCH_NEWS = 'news/FETCH_NEWS',
   FETCH_NEWS_START = 'news/FETCH_NEWS_START',
   FETCH_NEWS_FAIL = 'news/FETCH_NEWS_FAIL',
+  CHANGE_DISPLAY_TYPE = 'CHANGE_DISPLAY_TYPE',
 }
 
 // countries

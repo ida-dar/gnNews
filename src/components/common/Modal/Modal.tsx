@@ -1,8 +1,15 @@
 import Modal from 'react-modal';
 import styled from 'styled-components';
 
+interface ContentProps {
+  content: string | null;
+  url: string;
+  author: string;
+}
+
 type ModalProps = {
   title: string;
+  content: any | ContentProps;
   isOpen: boolean;
   onRequestClose: (event: React.MouseEvent<Element, MouseEvent> | React.KeyboardEvent<Element>) => void;
 };
@@ -22,14 +29,29 @@ const customStyles = {
   },
 };
 
-const ModalComp = ({ title, isOpen, onRequestClose }: ModalProps) => {
+const Header = styled.h3`
+  margin: 24px;
+`;
+
+const Content = styled.div`
+  padding: 24px;
+`;
+
+const ModalComp = ({ title, content, isOpen, onRequestClose }: ModalProps) => {
   return (
     <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={customStyles} ariaHideApp={false}>
-      <h4>{title}</h4>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. A vero, excepturi asperiores voluptatibus dolorum nulla fuga
-        neque soluta, repudiandae dolor suscipit quisquam ex? Expedita, veniam?
-      </p>
+      <Header>{title}</Header>
+      {Object.keys(content) ? (
+        <Content>
+          <p>{content?.author}</p>
+          <a href={content?.url} target="_blank">
+            Link to original article
+          </a>
+          <p>{content?.content}</p>
+        </Content>
+      ) : (
+        <p>{content}</p>
+      )}
     </Modal>
   );
 };

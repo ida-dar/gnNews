@@ -8,3 +8,5 @@ export const setNews = (news: News[]) => createAction(NEWS_ACTION_TYPES.FETCH_NE
 export const fetchNewsStart = () => createAction(NEWS_ACTION_TYPES.FETCH_NEWS_START);
 
 export const fetchNewsFail = (e: any) => createAction(NEWS_ACTION_TYPES.FETCH_NEWS_START, e);
+
+export const changeDisplayType = (type: string) => createAction(NEWS_ACTION_TYPES.CHANGE_DISPLAY_TYPE, type);

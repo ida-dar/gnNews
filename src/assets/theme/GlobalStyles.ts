@@ -1,6 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 import { theme } from './theme';
 import '../../vendors/normalize.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 const GlobalStyle = createGlobalStyle`
   html {

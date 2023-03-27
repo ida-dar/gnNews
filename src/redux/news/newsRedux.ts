@@ -1,11 +1,13 @@
 import { Dispatch } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { DisplayType } from 'src/interfaces/news.interface';
 import { NewsState, NEWS_ACTION_TYPES } from '../actionTypes';
 import { fetchNewsFail, fetchNewsStart, setNews } from './newsActions';
 
 // state
 const initialState: NewsState = {
   news: [],
+  displayType: DisplayType.GRID,
   request: {
     pending: false as boolean,
     error: null as Error | null,
@@ -59,6 +61,11 @@ const reducer = (state = initialState, action: { type: any; payload: any }) => {
           error: action.payload,
           success: false,
         },
+      };
+    case NEWS_ACTION_TYPES.CHANGE_DISPLAY_TYPE:
+      return {
+        ...state,
+        displayType: action.payload,
       };
     default:
       return state;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const Comp = styled(Container)`
   display: flex;
-  overflow: hidden;
+  padding: 0;
 `;
 
 export const Main = styled.main`

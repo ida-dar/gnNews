@@ -9,9 +9,17 @@ export const selectNewsSlices = createSelector([selectNewsReducer], (newsSlices:
 
 export const newsLoading = createSelector([selectNewsReducer], (newsSlice) => newsSlice.request.pending);
 
-export const selectNews = createSelector([selectNewsSlices], (news: News[]) =>
-  news?.reduce((acc: any, el: News) => {
-    acc.push(el);
-    return acc;
-  }, [])
+export const selectNews = createSelector(
+  [selectNewsReducer],
+  (newsSlice) =>
+    newsSlice.request.success &&
+    newsSlice.news?.reduce((acc: any, el: News) => {
+      acc.push(el);
+      return acc;
+    }, [])
+);
+
+export const selectDisplayType = createSelector(
+  [selectNewsReducer],
+  (newsSlice: { displayType: string }) => newsSlice.displayType
 );

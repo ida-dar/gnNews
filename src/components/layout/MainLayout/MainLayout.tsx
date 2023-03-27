@@ -15,7 +15,7 @@ const MainLayout = ({ children }: Props) => {
     <>
       <Header />
       <GlobalStyle />
-      <Comp>
+      <Comp fluid>
         <Sidebar />
         <Main>{children}</Main>
       </Comp>
