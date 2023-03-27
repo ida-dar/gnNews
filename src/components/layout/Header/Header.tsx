@@ -29,6 +29,8 @@ const Header = () => {
     dispatch(changeDisplayType(type));
   };
 
+  const modalText = '';
+
   return (
     <Component>
       <Row className="align-items-center justify-content-center">
@@ -49,7 +51,7 @@ const Header = () => {
           <Button onClick={onOpenModal} text={'Open modal'} />
         </Col>
       </Row>
-      <Modal title={'PopUp'} content={'Lorem'} isOpen={openModal} onRequestClose={closeModal} />
+      <Modal title={'PopUp'} content={modalText} isOpen={openModal} onRequestClose={closeModal} />
     </Component>
   );
 };

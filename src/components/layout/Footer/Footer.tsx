@@ -5,9 +5,9 @@ import { Content, Div } from './FooterCSS';
 
 const Footer = () => {
   const news = useAppSelector(selectNews);
+  let [value, setState] = useState<boolean>(true);
 
   const date = new Date().toLocaleTimeString();
-  let [value, setState] = useState(true);
 
   // force update every second to display current time
   useEffect(() => {
@@ -21,7 +21,7 @@ const Footer = () => {
   return (
     <Div>
       <Content>{date}</Content>
-      <Content>No. of articles: {news?.length}</Content>
+      <Content>Total No. of articles: {news?.length}</Content>
     </Div>
   );
 };

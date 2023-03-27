@@ -41,7 +41,7 @@ const ModalComp = ({ title, content, isOpen, onRequestClose }: ModalProps) => {
   return (
     <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={customStyles} ariaHideApp={false}>
       <Header>{title}</Header>
-      {Object.keys(content) ? (
+      {typeof content !== 'string' ? (
         <Content>
           <p>{content?.author}</p>
           <a href={content?.url} target="_blank">

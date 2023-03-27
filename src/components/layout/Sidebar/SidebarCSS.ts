@@ -6,19 +6,19 @@ export const Container = styled.div`
   flex: 1;
   padding: 24px;
   max-width: 275px;
-  background-color: ${theme.colors.bgDark};
-  color: ${theme.colors.white};
+  background-color: ${theme.colors.bgDarkColor};
+  color: ${theme.colors.black};
   font-weight: 400;
-  font-size: 1.2em;
-  line-height: 1;
-  height: 100vh;
+  font-size: 1.15em;
+  line-height: 1.25;
+  height: 100%;
   overflow-y: scroll;
 `;
 
 export const CountriesBox = styled.div`
   display: flex;
   justify-content: space-between;
-  color: ${theme.colors.white};
+  color: ${theme.colors.black};
 `;
 
 export const Nav = styled(NavLink)`

@@ -25,4 +25,5 @@ export const Article = styled.article`
 
 export const Title = styled.h3`
   font-style: italic;
+  font-weight: 600;
 `;

@@ -54,13 +54,13 @@ const Span = styled.span`
 const Button = styled.button`
   position: relative;
   display: 'inline-block';
-  height: 50px;
+  height: 40px;
   pointer-events: auto;
   cursor: pointer;
   border: ${(props: ButtonProps) => `1px solid ${props.reverseColors ? theme.colors.white : theme.colors.black}`};
-  width: ${(props: ButtonProps) => (typeof props.width === 'number' ? `${props.width}px` : props.width) || '200px'};
+  width: ${(props: ButtonProps) => (typeof props.width === 'number' ? `${props.width}px` : props.width) || '150px'};
   padding: 0;
-  margin: ${(props: ButtonProps) => (props.margin ? props.margin : '12px')};
+  margin: ${(props: ButtonProps) => (props.margin ? props.margin : '0')};
   background: none;
   color: ${(props: ButtonProps) => (props.reverseColors ? theme.colors.black : theme.colors.white)};
   font-weight: bold;
@@ -91,7 +91,7 @@ const ButtonContent = styled.p`
   display: block;
   margin: 0;
   position: relative;
-  padding: 1.5rem 3rem;
+  padding: 0.9rem 1.5rem;
   mix-blend-mode: difference;
   ${(props: ButtonProps) => props.reverseColors && `color: ${theme.colors.white}`};
 `;

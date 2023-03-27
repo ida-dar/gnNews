@@ -21,7 +21,7 @@ export const fetchNews = (countryCode: string) => async (dispatch: Dispatch) => 
 
   try {
     const resp = await axios.get(
-      `https://newsapi.org/v2/top-headlines?country=${countryCode}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`
+      `https://newsapi.org/v2/top-headlines?pageSize=100&country=${countryCode}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`
     );
     dispatch(setNews(resp.data.articles));
   } catch (e) {
