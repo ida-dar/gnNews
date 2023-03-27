@@ -14,7 +14,6 @@ export const countriesLoading = createSelector([selectCountriesReducer], (countr
 
 export const selectCountries = createSelector([selectCountriesSlices], (countries: Countries[]) =>
   countries?.reduce((acc: any, el: Countries) => {
-    console.log(el);
     const country = {
       cca2: el.cca2,
       flag: el.flag,

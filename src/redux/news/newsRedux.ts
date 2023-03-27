@@ -30,7 +30,6 @@ export const fetchNews = (countryCode: string) => async (dispatch: Dispatch) => 
 };
 
 const reducer = (state = initialState, action: { type: any; payload: any }) => {
-  console.log(action);
   switch (action.type) {
     case NEWS_ACTION_TYPES.FETCH_NEWS:
       return {

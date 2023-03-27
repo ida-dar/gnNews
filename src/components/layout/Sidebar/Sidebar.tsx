@@ -13,7 +13,6 @@ const Sidebar = () => {
     dispatch(fetchNews(el));
   };
 
-  console.log(countries);
   return (
     <Container>
       {countries

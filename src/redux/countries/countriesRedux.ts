@@ -30,7 +30,6 @@ export const fetchCountries = () => async (dispatch: Dispatch) => {
 };
 
 const reducer = (state = initialState, action: { type: any; payload: any }) => {
-  console.log(action);
   switch (action.type) {
     case COUNTRIES_ACTION_TYPES.FETCH_COUNTRIES:
       return {
