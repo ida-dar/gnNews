@@ -1,7 +1,8 @@
-import { Dispatch } from '@reduxjs/toolkit';
+import { AnyAction, Dispatch } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { Countries } from 'src/interfaces/countries.interface';
 import { CountriesState, COUNTRIES_ACTION_TYPES } from '../actionTypes';
+import { AppDispatch } from '../store';
 import { fetchCountriesFail, fetchCountriesStart, setCountries } from './countriesActions';
 
 // state
@@ -15,7 +16,7 @@ const initialState: CountriesState = {
 };
 
 // reducer
-export const fetchCountries = () => async (dispatch: Dispatch) => {
+export const fetchCountries = () => async (dispatch: AppDispatch) => {
   dispatch(fetchCountriesStart());
 
   try {
@@ -29,7 +30,7 @@ export const fetchCountries = () => async (dispatch: Dispatch) => {
   }
 };
 
-const reducer = (state = initialState, action: { type: any; payload: any }) => {
+const reducer = (state = initialState, action = {} as any) => {
   switch (action.type) {
     case COUNTRIES_ACTION_TYPES.FETCH_COUNTRIES:
       return {

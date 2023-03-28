@@ -11,7 +11,7 @@ export const newsLoading = createSelector([selectNewsReducer], (newsSlice) => ne
 
 export const selectNews = createSelector(
   [selectNewsReducer],
-  (newsSlice) =>
+  (newsSlice: { news: News[]; request: any }) =>
     newsSlice.request.success &&
     newsSlice.news?.reduce((acc: any, el: News) => {
       acc.push(el);

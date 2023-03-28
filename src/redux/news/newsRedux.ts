@@ -1,12 +1,12 @@
-import { Dispatch } from '@reduxjs/toolkit';
+import { AnyAction, Dispatch } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { DisplayType } from 'src/interfaces/news.interface';
+import { DisplayType, News } from 'src/interfaces/news.interface';
 import { NewsState, NEWS_ACTION_TYPES } from '../actionTypes';
 import { fetchNewsFail, fetchNewsStart, setNews } from './newsActions';
 
 // state
 const initialState: NewsState = {
-  news: [],
+  news: [] as News[],
   displayType: DisplayType.GRID,
   request: {
     pending: false as boolean,
@@ -29,7 +29,7 @@ export const fetchNews = (countryCode: string) => async (dispatch: Dispatch) => 
   }
 };
 
-const reducer = (state = initialState, action: { type: any; payload: any }) => {
+const reducer = (state = initialState, action = {} as AnyAction) => {
   switch (action.type) {
     case NEWS_ACTION_TYPES.FETCH_NEWS:
       return {
