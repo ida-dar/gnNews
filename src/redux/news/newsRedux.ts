@@ -20,8 +20,9 @@ export const fetchNews = (countryCode: string) => async (dispatch: Dispatch) => 
   dispatch(fetchNewsStart());
 
   try {
+    // Requests from the browser are not allowed on the Developer plan, except from localhost.
     const resp = await axios.get(
-      `https://newsapi.org/v2/top-headlines?pageSize=100&country=${countryCode}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`
+      `https://newsapi.org/v2/top-headlines?pageSize=100&country=${countryCode}&apiKey=85d0a27298084d9ebe5d3cd1cb6ffd64`
     );
     dispatch(setNews(resp.data.articles));
   } catch (e) {

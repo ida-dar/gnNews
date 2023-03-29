@@ -12,8 +12,6 @@ const Footer = () => {
 
   const date = new Date().toLocaleTimeString();
 
-  console.log(pathname);
-
   // force update every second to display current time
   useEffect(() => {
     const interval = setInterval(() => {
