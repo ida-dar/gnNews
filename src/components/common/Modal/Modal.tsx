@@ -39,7 +39,7 @@ const Content = styled.div`
 
 const ModalComp = ({ title, content, isOpen, onRequestClose }: ModalProps) => {
   return (
-    <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={customStyles} ariaHideApp={false}>
+    <Modal isOpen={isOpen} style={customStyles} ariaHideApp={false} onRequestClose={onRequestClose}>
       <Header>{title}</Header>
       {typeof content !== 'string' ? (
         <Content>

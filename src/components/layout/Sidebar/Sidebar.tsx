@@ -22,8 +22,6 @@ const Sidebar = () => {
     dispatch(setSidebarOpen(val));
   };
 
-  console.log(opened);
-
   return (
     <Container isMobileView={opened}>
       {opened && (
