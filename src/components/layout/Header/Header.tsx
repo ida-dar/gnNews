@@ -29,7 +29,7 @@ const Header = () => {
     dispatch(changeDisplayType(type));
   };
 
-  const modalText = '';
+  const modalText = 'Najlepiej bawiłam się przy pisaniu reduxa, a największą trudność sprawiło mi napisanie testów';
 
   return (
     <Component>
@@ -51,7 +51,7 @@ const Header = () => {
           <Button onClick={onOpenModal} text={'Open modal'} />
         </Col>
       </Row>
-      <Modal title={'PopUp'} content={modalText} isOpen={openModal} onRequestClose={closeModal} />
+      <Modal title={'Ups and Downs'} content={modalText} isOpen={openModal} onRequestClose={closeModal} />
     </Component>
   );
 };
