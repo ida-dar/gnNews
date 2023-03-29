@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { Col } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import { DisplayType, News } from 'src/interfaces/news.interface';
 import { selectDisplayType } from 'src/redux/news/newsSelector';
 import { useAppSelector } from 'src/redux/utils/hooks';
 import Modal from 'src/components/common/Modal/Modal';
-import { Article, Title } from './NewsItemsCSS';
+import { Article, Img, ImgContainer, Title } from './NewsItemsCSS';
 
 type ModalProps = {
   title: string;
@@ -54,13 +54,19 @@ const NewsItems = ({ news }: any) => {
         news?.map((el: News, i: string) => (
           <Col key={i} lg={isDisplayedAsList ? 12 : 4} md={isDisplayedAsList ? 12 : 6} sm={12}>
             <Article isDisplayedAsList={isDisplayedAsList} onClick={() => onOpenModal(el)}>
-              {!isDisplayedAsList && el.urlToImage && <img src={el.urlToImage} />}
-              <Title>{el.title}</Title>
-              <p>
-                {el.publishedAt.replace('T', ' ').replace('Z', '')} - {el.author}
-              </p>
-              <p>Source: {el.source.name}</p>
-              {!isDisplayedAsList && el.urlToImage && <p>{el.description}</p>}
+              {!isDisplayedAsList && el.urlToImage && (
+                <ImgContainer>
+                  <Img src={el.urlToImage} />
+                </ImgContainer>
+              )}
+              <Row>
+                <Title>{el.title}</Title>
+                <p>
+                  {el.publishedAt.replace('T', ' ').replace('Z', '')} - {el.author}
+                </p>
+                <p>Source: {el.source.name}</p>
+                {!isDisplayedAsList && <p>{el.description}</p>}
+              </Row>
             </Article>
           </Col>
         ))}

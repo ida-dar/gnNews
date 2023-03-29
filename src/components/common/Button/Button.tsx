@@ -11,6 +11,7 @@ interface ButtonProps {
   margin?: string;
   textTransform?: string;
   disabled?: boolean;
+  displayMedia?: string;
 }
 
 const Span = styled.span`
@@ -85,6 +86,10 @@ const Button = styled.button`
     transition-duration: 0.01s;
     transition-delay: 0.3s;
   }
+
+  @media (min-width: 992px) {
+    display: ${(props: ButtonProps) => (props.displayMedia ? props.displayMedia : 'inline-block')};
+  }
 `;
 
 const ButtonContent = styled.p`
@@ -106,6 +111,7 @@ const ButtonComponent = ({
   margin,
   textTransform,
   disabled,
+  displayMedia,
 }: ButtonProps) => {
   return (
     <Button
@@ -116,6 +122,7 @@ const ButtonComponent = ({
       margin={margin}
       textTransform={textTransform}
       disabled={disabled}
+      displayMedia={displayMedia}
     >
       <Span reverseColors={reverseColors} />
       <ButtonContent reverseColors={reverseColors}>

@@ -5,6 +5,7 @@ import reducer from '../countries/countriesRedux';
 test('should return the initial state', () => {
   expect(reducer(undefined, { type: undefined })).toEqual({
     countries: [],
+    openSidebar: false,
     request: { pending: false, error: null, success: false },
   });
 });
@@ -12,6 +13,7 @@ test('should return the initial state', () => {
 test('should handle fetching countries', () => {
   const previousState: CountriesState = {
     countries: [],
+    openSidebar: false,
     request: { pending: false, error: null, success: false },
   };
 

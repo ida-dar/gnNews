@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Col, Row } from 'react-bootstrap';
 import { selectNews } from 'src/redux/news/newsSelector';
 import { useAppSelector } from 'src/redux/utils/hooks';
 import { Content, Div } from './FooterCSS';

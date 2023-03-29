@@ -12,6 +12,7 @@ import { BrowserRouter } from 'react-router-dom';
 import MainLayout from './components/layout/MainLayout/MainLayout';
 import Home from './components/views/Home/Home';
 import News from './components/views/News/News';
+import PageToTop from './components/common/PageToTop/PageToTop';
 
 interface RoutesInterface {
   path: string;
@@ -38,6 +39,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
+      <PageToTop />
       <MainLayout>
         <Routes>
           {routes.map((route) => (

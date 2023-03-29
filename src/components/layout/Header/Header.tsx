@@ -39,7 +39,7 @@ const Header = () => {
             <Logo>gnNews</Logo>
           </NavLink>
         </Col>
-        <Col lg={1} sm={12}>
+        <Col lg={1} sm={6} xs={6}>
           <Btn isActive={displayType === DisplayType.GRID}>
             <Icon icon={faGrip} onClick={() => onDisplayChange(DisplayType.GRID)} />
           </Btn>
@@ -47,7 +47,7 @@ const Header = () => {
             <Icon icon={faList} onClick={() => onDisplayChange(DisplayType.LIST)} />
           </Btn>
         </Col>
-        <Col lg={3} sm={12}>
+        <Col lg={3} sm={6} xs={6}>
           <Button onClick={onOpenModal} text={'Open modal'} />
         </Col>
       </Row>

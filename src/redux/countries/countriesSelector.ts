@@ -23,3 +23,8 @@ export const selectCountries = createSelector([selectCountriesSlices], (countrie
     return acc;
   }, [])
 );
+
+export const isSidebarOpened = createSelector(
+  [selectCountriesReducer],
+  (countriesSlice: { openSidebar: boolean }) => countriesSlice.openSidebar
+);

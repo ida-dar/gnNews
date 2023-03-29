@@ -6,7 +6,7 @@ interface ButtonProps {
 }
 
 export const Header = styled.h2`
-  font-size: calc(16px + ((36 * (100vw - 720px)) / 2040)); // magic number
+  font-size: calc(16px + ((36 * (100vw - 320px)) / 2040)); // magic number
   font-family: ${theme.font.fontHeader};
   font-weight: 100;
   line-height: 143.3%;
@@ -30,7 +30,7 @@ export const Numbers = styled.li`
   padding: 6px;
 `;
 
-export const Button = styled.button`
+export const Btn = styled.button`
   font-size: 1.1rem;
   display: inline-block;
   margin: 4px;

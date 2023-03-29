@@ -13,6 +13,10 @@ export const Component = styled.header`
   text-align: center;
   color: ${theme.colors.white};
   height: 60px;
+
+  @media (max-width: 992px) {
+    height: 100px;
+  }
 `;
 
 export const Logo = styled.p`
@@ -26,6 +30,10 @@ export const Logo = styled.p`
   font-style: italic;
   margin: 0;
   user-select: none;
+
+  @media (max-width: 992px) {
+    margin: 12px;
+  }
 `;
 
 export const Icon = styled(FontAwesomeIcon)`

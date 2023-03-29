@@ -2,14 +2,17 @@ import { Row } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 
 import { newsLoading, selectNews } from 'src/redux/news/newsSelector';
-import { useAppSelector } from 'src/redux/utils/hooks';
+import { useAppDispatch, useAppSelector } from 'src/redux/utils/hooks';
+import { setSidebarOpen } from 'src/redux/countries/countriesActions';
 
 import Loader from 'src/components/common/Loader/Loader';
+import Button from 'src/components/common/Button/Button';
 import NewsList from 'src/components/features/NewsItems/NewsItems';
-import { Button, Header, Numbers, Pages } from './NewsCSS';
+import { Btn, Header, Numbers, Pages } from './NewsCSS';
 import { useState } from 'react';
 
 const News = () => {
+  const dispatch = useAppDispatch();
   const news = useAppSelector(selectNews);
   const loading = useAppSelector(newsLoading);
 
@@ -34,23 +37,36 @@ const News = () => {
   const renderPageNumbers = pageNumbers.map((num: number) => {
     return (
       <Numbers key={num}>
-        <Button isActive={activePage === num} onClick={() => setActivePage(num)}>
+        <Btn isActive={activePage === num} onClick={() => setActivePage(num)}>
           {num}
-        </Button>
+        </Btn>
       </Numbers>
     );
   });
 
+  const onSidebarOpen = (val: boolean) => {
+    dispatch(setSidebarOpen(val));
+  };
+
   return (
-    <div>
+    <Row>
+      {
+        <Button
+          onClick={() => onSidebarOpen(true)}
+          text={'List of countries'}
+          width={'250px'}
+          margin={'24px auto'}
+          displayMedia={'none'}
+        />
+      }
       <Header>News from {country}</Header>
       {news && (
         <div>
           No. of news per page:{' '}
           {pageSizeOptions.map((el) => (
-            <Button onClick={() => setN(el)} isActive={n === el} key={el}>
+            <Btn onClick={() => setN(el)} isActive={n === el} key={el}>
               {el}
-            </Button>
+            </Btn>
           ))}
           <Pages>{pageNumbers.length > 1 && renderPageNumbers}</Pages>
         </div>
@@ -62,7 +78,10 @@ const News = () => {
           <NewsList news={newsArray} />
         </Row>
       )}
-    </div>
+      <div>
+        <Pages>{pageNumbers.length > 1 && renderPageNumbers}</Pages>
+      </div>
+    </Row>
   );
 };
 

@@ -6,6 +6,10 @@ export const Comp = styled(Container)`
   padding: 0;
   overflow: hidden;
   height: calc(100vh - 45px - 12px - 48px); // reduced by height of the header, footer with paddings
+
+  @media (max-width: 992px) {
+    height: 100%;
+  }
 `;
 
 export const Main = styled.main`

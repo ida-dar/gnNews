@@ -1,4 +1,3 @@
-import { AnyAction, Dispatch } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { Countries } from 'src/interfaces/countries.interface';
 import { CountriesState, COUNTRIES_ACTION_TYPES } from '../actionTypes';
@@ -8,6 +7,7 @@ import { fetchCountriesFail, fetchCountriesStart, setCountries } from './countri
 // state
 const initialState: CountriesState = {
   countries: [] as Countries[],
+  openSidebar: false as boolean,
   request: {
     pending: false as boolean,
     error: null as Error | null,
@@ -61,6 +61,11 @@ const reducer = (state = initialState, action = {} as any) => {
           error: action.payload,
           success: false,
         },
+      };
+    case COUNTRIES_ACTION_TYPES.OPEN_SIDEBAR:
+      return {
+        ...state,
+        openSidebar: action.payload,
       };
     default:
       return state;

@@ -22,6 +22,7 @@ export enum NEWS_ACTION_TYPES {
 // countries
 export type CountriesState = {
   readonly countries: Countries[];
+  readonly openSidebar: boolean;
   readonly request: {
     pending: boolean;
     error: Error | null;
@@ -33,4 +34,5 @@ export enum COUNTRIES_ACTION_TYPES {
   FETCH_COUNTRIES = 'countries/FETCH_COUNTRIES',
   FETCH_COUNTRIES_START = 'countries/FETCH_COUNTRIES_START',
   FETCH_COUNTRIES_FAIL = 'countries/FETCH_COUNTRIES_FAIL',
+  OPEN_SIDEBAR = 'countries/OPEN_SIDEBAR',
 }

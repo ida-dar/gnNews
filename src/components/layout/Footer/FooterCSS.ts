@@ -10,6 +10,11 @@ export const Div = styled.footer`
   background-color: ${theme.colors.bgDarkColor};
   padding: 6px 0;
   height: 45px;
+
+  @media (max-width: 992px) {
+    flex-direction: column;
+    height: 75px;
+  }
 `;
 
 export const Content = styled.p`
@@ -19,4 +24,8 @@ export const Content = styled.p`
   line-height: 125.8%;
   font-weight: 600;
   letter-spacing: 0.25em;
+
+  @media (max-width: 992px) {
+    margin: 6px;
+  }
 `;
