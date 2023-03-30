@@ -45,7 +45,6 @@ const reducer = (state = initialState, action = {} as any) => {
     case COUNTRIES_ACTION_TYPES.FETCH_COUNTRIES_START:
       return {
         ...state,
-        countries: action.payload,
         request: {
           pending: true,
           error: null,
@@ -55,7 +54,6 @@ const reducer = (state = initialState, action = {} as any) => {
     case COUNTRIES_ACTION_TYPES.FETCH_COUNTRIES_FAIL:
       return {
         ...state,
-        countries: action.payload,
         request: {
           pending: false,
           error: action.payload,

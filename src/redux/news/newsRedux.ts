@@ -20,7 +20,7 @@ export const fetchNews = (countryCode: string) => async (dispatch: Dispatch) => 
   dispatch(fetchNewsStart());
 
   try {
-    // Requests from the browser are not allowed on the Developer plan, except from localhost.
+    // Requests from the browser are not allowed on the Developer plan, except from localhost in News API, therefore the api key is public
     const resp = await axios.get(
       `https://newsapi.org/v2/top-headlines?pageSize=100&country=${countryCode}&apiKey=85d0a27298084d9ebe5d3cd1cb6ffd64`
     );
@@ -45,7 +45,6 @@ const reducer = (state = initialState, action = {} as AnyAction) => {
     case NEWS_ACTION_TYPES.FETCH_NEWS_START:
       return {
         ...state,
-        news: action.payload,
         request: {
           pending: true,
           error: null,
@@ -55,7 +54,6 @@ const reducer = (state = initialState, action = {} as AnyAction) => {
     case NEWS_ACTION_TYPES.FETCH_NEWS_FAIL:
       return {
         ...state,
-        news: action.payload,
         request: {
           pending: false,
           error: action.payload,

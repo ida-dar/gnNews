@@ -1,27 +1,7 @@
 import { screen } from '@testing-library/react';
-import { NewsState } from 'src/redux/actionTypes';
-import renderWithProviders from 'src/utils/test-utils';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { renderWithProviders } from 'src/utils/test-utils';
 import Footer from './Footer';
-
-const previousState: NewsState = {
-  news: [
-    {
-      source: {
-        id: 'string',
-        name: 'string',
-      },
-      author: 'string',
-      title: 'string',
-      description: 'string',
-      url: 'string',
-      urlToImage: 'string',
-      publishedAt: 'string',
-      content: 'string',
-    },
-  ],
-  displayType: 'grid',
-  request: { pending: false, error: null, success: true },
-};
 
 describe('Component Footer', () => {
   beforeAll(() => {
@@ -34,13 +14,21 @@ describe('Component Footer', () => {
   });
 
   test('Should render component without crashing', () => {
-    const { container } = renderWithProviders(<Footer />);
+    const { container } = renderWithProviders(
+      <Router>
+        <Footer />
+      </Router>
+    );
 
     expect(container).toBeInTheDocument();
   });
 
   test('Should render correct time', () => {
-    renderWithProviders(<Footer />);
+    renderWithProviders(
+      <Router>
+        <Footer />
+      </Router>
+    );
     const time = screen.getByText(/12:24:32/i);
 
     expect(time).toBeInTheDocument();

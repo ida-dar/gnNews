@@ -7,6 +7,6 @@ export const setCountries = (Countries: Countries[]) => createAction(COUNTRIES_A
 
 export const fetchCountriesStart = () => createAction(COUNTRIES_ACTION_TYPES.FETCH_COUNTRIES_START);
 
-export const fetchCountriesFail = (e: any) => createAction(COUNTRIES_ACTION_TYPES.FETCH_COUNTRIES_START, e);
+export const fetchCountriesFail = (e: any) => createAction(COUNTRIES_ACTION_TYPES.FETCH_COUNTRIES_FAIL, e);
 
 export const setSidebarOpen = (val: boolean) => createAction(COUNTRIES_ACTION_TYPES.OPEN_SIDEBAR, val);

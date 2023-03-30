@@ -22,7 +22,7 @@ const persistConfig = {
   blacklist: ['countries'],
 };
 
-const middlewares = [process.env.NODE_ENV !== 'production' && logger].filter(Boolean) as Middleware<
+const middlewares = [process.env.NODE_ENV === 'development' && logger].filter(Boolean) as Middleware<
   {},
   any,
   Dispatch<AnyAction>

@@ -1,5 +1,4 @@
-import renderWithProviders from 'src/utils/test-utils';
-
+import { renderWithProviders } from 'src/utils/test-utils';
 import Home from './Home';
 
 test('Should render Home component without crashing', () => {
